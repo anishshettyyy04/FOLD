@@ -1,4 +1,8 @@
 // Bind this script to the Google Form. See README.md for installation.
+function doGet(e) {
+  const props = PropertiesService.getScriptProperties();
+  return json({ok:true, settings: JSON.parse(props.getProperty('EVENT_SETTINGS') || '{}')});
+}
 function doPost(e) {
   const input = JSON.parse(e.postData.contents);
   const props = PropertiesService.getScriptProperties();

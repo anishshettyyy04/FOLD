@@ -19,8 +19,18 @@ export default async function handler(req,res) {
   if(!FORM_SCRIPT_URL || !FORM_SECRET) return req.method==='GET'?res.json(defaults):res.status(503).json({error:'Connect the Google Form settings script in Vercel first.'});
   try {
     const response=await fetch(FORM_SCRIPT_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({secret:FORM_SECRET,settings}),signal:AbortSignal.timeout(15000)});
+    if (!response.ok) {
+      if (req.method === 'GET') return res.json(defaults);
+      return res.status(502).json({error: `Google Apps Script returned status ${response.status}. Check Web App URL and permissions.`});
+    }
     const data=await response.json();
-    if (!response.ok||!data.ok) throw Error();
+    if (!data.ok) {
+      if (req.method === 'GET') return res.json(defaults);
+      return res.status(502).json({error: 'Google Apps Script rejected the shared secret.'});
+    }
     return res.json({...defaults,...data.settings});
-  } catch {return res.status(503).json({error:'Event settings are temporarily unavailable.'});}
+  } catch (err) {
+    if (req.method === 'GET') return res.json(defaults);
+    return res.status(503).json({error: err?.message || 'Event settings are temporarily unavailable.'});
+  }
 }
