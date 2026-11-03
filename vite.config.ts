@@ -3,7 +3,7 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
-  const adminPassword = env.ADMIN_PASSWORD || "admin123";
+  const adminPassword = env.ADMIN_PASSWORD || "Zerone@2026";
   let localSettings = {
     venue: "MITE campus",
     event_date: "2026-11-13",
