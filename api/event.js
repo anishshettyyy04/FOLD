@@ -7,7 +7,12 @@ function same(a,b) {
 export default async function handler(req,res) {
   res.setHeader('Cache-Control','no-store');
   const {FORM_SCRIPT_URL, FORM_SECRET, ADMIN_PASSWORD} = process.env;
-  const defaults = {venue:'MITE campus', event_date:'2026-11-13', time:'', formUrl:''};
+  const defaults = {
+    venue: process.env.EVENT_VENUE || 'MITE campus',
+    event_date: process.env.EVENT_DATE || '2026-11-13',
+    time: process.env.EVENT_TIME || '10:00',
+    formUrl: process.env.EVENT_FORM_URL || 'https://forms.gle/xgwbdJaWfsybkp6M7'
+  };
   if (!['GET','PUT'].includes(req.method)) return res.status(405).end();
   let settings;
   if (req.method === 'PUT') {

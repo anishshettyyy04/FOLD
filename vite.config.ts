@@ -7,8 +7,8 @@ export default defineConfig(({ mode }) => {
   let localSettings = {
     venue: "MITE campus",
     event_date: "2026-11-13",
-    time: "",
-    formUrl: "",
+    time: "10:00",
+    formUrl: "https://forms.gle/xgwbdJaWfsybkp6M7",
   };
 
   return {
