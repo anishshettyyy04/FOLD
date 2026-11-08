@@ -102,8 +102,8 @@ em {
   transform: none;
 }
 .site-header {
-  height: 90px;
-  padding: 0 5%;
+  min-height: 92px;
+  padding: 12px 5%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -116,28 +116,72 @@ em {
 .brand {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-family: "Space Grotesk", sans-serif;
-  font-size: 19px;
-  font-weight: 700;
-  letter-spacing: 0.07em;
+  gap: 16px;
+  text-decoration: none;
 }
-.brand-mark {
-  font-family: var(--display);
-  font-size: 43px;
+.header-logos {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+.header-logo {
+  display: block;
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+.header-logo:hover {
+  transform: scale(1.05);
+}
+.header-logo-mite {
+  height: 52px;
+  width: auto;
+}
+.header-logo-zerone {
+  height: 48px;
+  width: auto;
+  border-radius: 50%;
+  filter: drop-shadow(0 2px 4px rgba(33, 16, 12, 0.25));
+}
+.brand-divider {
+  width: 1.5px;
+  height: 42px;
+  background: var(--line);
+  flex-shrink: 0;
+}
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  justify-content: center;
+}
+.brand-dept {
+  font-family: Inter, sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  line-height: 1.25;
+}
+.brand-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--ink);
   line-height: 1;
-  letter-spacing: -0.07em;
-  background: var(--ink);
-  color: var(--yellow);
-  padding: 0 8px 5px 6px;
 }
 .brand-sub {
-  display: block;
   font-family: Inter, sans-serif;
   font-weight: 600;
-  font-size: 7px;
-  letter-spacing: 0.19em;
-  margin-top: 3px;
+  font-size: 8px;
+  letter-spacing: 0.2em;
+  color: var(--ink);
+  opacity: 0.85;
 }
 .main-nav {
   display: flex;
@@ -2082,20 +2126,28 @@ em {
 }
 @media (max-width: 800px) {
   .site-header {
-    height: 75px;
+    min-height: 80px;
+    padding: 10px 4%;
+  }
+  .header-logo-mite {
+    height: 44px;
+  }
+  .header-logo-zerone {
+    height: 40px;
+  }
+  .brand-dept {
+    font-size: 9px;
+    max-width: 260px;
+  }
+  .brand-title {
+    font-size: 14px;
+  }
+  .brand-sub {
+    font-size: 7px;
   }
   .main-nav {
     gap: 16px;
     font-size: 10px;
-  }
-  .brand {
-    font-size: 16px;
-  }
-  .brand-mark {
-    font-size: 36px;
-  }
-  .brand-sub {
-    font-size: 6px;
   }
   .main-nav .nav-cta {
     gap: 13px;
@@ -2412,14 +2464,35 @@ em {
     scroll-padding-top: 20px;
   }
   .site-header {
-    height: 70px;
-    padding: 0 6%;
+    min-height: 74px;
+    padding: 8px 5%;
   }
   .brand {
-    font-size: 17px;
+    gap: 10px;
   }
-  .brand-mark {
-    font-size: 35px;
+  .header-logos {
+    gap: 8px;
+  }
+  .header-logo-mite {
+    height: 38px;
+  }
+  .header-logo-zerone {
+    height: 34px;
+  }
+  .brand-divider {
+    height: 28px;
+  }
+  .brand-dept {
+    font-size: 8px;
+    letter-spacing: 0.05em;
+    max-width: 175px;
+    line-height: 1.2;
+  }
+  .brand-title {
+    font-size: 13px;
+  }
+  .brand-sub {
+    font-size: 6px;
   }
   .menu-toggle {
     display: grid;
@@ -2430,7 +2503,7 @@ em {
   .main-nav {
     display: none;
     position: absolute;
-    top: 69px;
+    top: 73px;
     left: 0;
     right: 0;
     padding: 25px 6%;

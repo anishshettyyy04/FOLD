@@ -33,7 +33,11 @@ export default async function handler(req,res) {
       if (req.method === 'GET') return res.json(defaults);
       return res.status(502).json({error: 'Google Apps Script rejected the shared secret.'});
     }
-    return res.json({...defaults,...data.settings});
+    const merged = {...defaults,...data.settings};
+    if (merged.event_date === '2026-11-13') merged.event_date = '2026-11-12';
+    if (merged.time === '10:00') merged.time = '11:00';
+    if (merged.venue === 'MITE campus') merged.venue = 'ISE LAB (30 seater 1st floor main block)';
+    return res.json(merged);
   } catch (err) {
     if (req.method === 'GET') return res.json(defaults);
     return res.status(503).json({error: err?.message || 'Event settings are temporarily unavailable.'});

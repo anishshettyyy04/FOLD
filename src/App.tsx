@@ -24,11 +24,18 @@ function Header() {
   const location = useLocation();
   return (
     <header className="site-header">
-      <Link className="brand" to="/" aria-label="FOLD 2026 home">
-        <span className="brand-mark">f.</span>
-        <span>
-          ZERONE<span className="brand-sub">PRESENTS FOLD 2026</span>
-        </span>
+      <Link className="brand" to="/" aria-label="Department of Information Science and Engineering - ZERONE FOLD 2026">
+        <div className="header-logos">
+          <img src="/mite-logo.png" alt="MITE Logo" className="header-logo header-logo-mite" />
+          <img src="/zerone-logo.png" alt="ZERONE Logo" className="header-logo header-logo-zerone" />
+        </div>
+        <div className="brand-divider" aria-hidden="true" />
+        <div className="brand-text">
+          <span className="brand-dept">Department of Information Science and Engineering</span>
+          <span className="brand-title">
+            ZERONE <span className="brand-sub">PRESENTS FOLD 2026</span>
+          </span>
+        </div>
       </Link>
       <button
         className="menu-toggle"
