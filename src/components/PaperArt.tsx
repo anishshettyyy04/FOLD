@@ -70,7 +70,7 @@ export function PaperArt({ compact = false }: { compact?: boolean }) {
             <br />
             UNFOLD.
           </span>
-          <span className="micro panel-bottom">13.11.26 / MITE</span>
+          <span className="micro panel-bottom">12.11.26 / ISE LAB</span>
         </div>
         <div className="brochure-panel panel-three">
           <span className="micro">BROCHURE DESIGN CHALLENGE</span>
@@ -95,11 +95,11 @@ export function PaperArt({ compact = false }: { compact?: boolean }) {
         <span>↗</span>
       </div>
       <div className="art-sticker">
-        <span>120</span>
+        <span>90</span>
         <small>
-          MINUTES.
+          MIN DESIGN.
           <br />
-          MAKE THEM COUNT.
+          30 MIN JUDGING.
         </small>
       </div>
     </div>

@@ -32,7 +32,7 @@ const rules = [
   ],
   [
     "Watch the clock.",
-    "Follow the official submission deadline. Submit your files to the organizers by minute 120.",
+    "Follow the official submission deadline. Submit your files to the organizers by minute 90 (1:30 hr). Judgement starts immediately for 30 minutes (2 hr total).",
   ],
 ];
 
@@ -88,7 +88,7 @@ function Intro({ close }: { close: () => void }) {
       <button ref={enter} className="button button-dark" onClick={close}>
         Enter the experience <ArrowUpRight size={19} />
       </button>
-      <span className="intro-bottom">13 NOVEMBER 2026 · MITE</span>
+      <span className="intro-bottom">12 NOVEMBER 2026 · 11:00 AM — 1:00 PM · ISE LAB (30 SEATER 1ST FLOOR MAIN BLOCK)</span>
     </div>
   );
 }
@@ -171,10 +171,10 @@ export function Landing() {
       <section className="hero">
         <div className="hero-topline">
           <span>
-            <span className="live-dot" /> ZERONE × MITE
+            <span className="live-dot" /> ZERONE × ISE LAB
           </span>
-          <span>A LITTLE PAPER. A LOT OF POSSIBILITY.</span>
-          <span>EDITION 01 / 2026</span>
+          <span>12.11.2026 · 11:00 AM – 1:00 PM · TOTAL 2 HR</span>
+          <span>PRIZE POOL: ₹4,500 RS</span>
         </div>
         <div className="hero-main">
           <div className="hero-copy">
@@ -197,11 +197,30 @@ export function Landing() {
               <em>page count.</em>
             </h2>
             <p>
-              Two minds. Four pages. Two hours.
+              Two minds. Four pages. Two hours total.
               <br />
-              Turn an unexpected brief into something
-              <br className="desktop-br" /> impossible to ignore.
+              1:30 hr design challenge + 30 min judgement.
+              <br className="desktop-br" /> Turn an unexpected brief into something
+              impossible to ignore.
             </p>
+            <div className="hero-prize-callout">
+              <div className="prize-callout-top">
+                <span className="prize-callout-pill">
+                  <Starburst className="prize-pill-star" /> TOTAL PRIZE POOL
+                </span>
+                <span className="prize-callout-tag">CASH AWARDS</span>
+              </div>
+              <div className="prize-callout-main">
+                <span className="prize-callout-currency">₹</span>
+                <span className="prize-callout-amount">4500</span>
+                <span className="prize-callout-rs">RS</span>
+              </div>
+              <div className="prize-callout-sub">
+                <span>CASH REWARDS FOR WINNING TEAMS</span>
+                <span className="prize-callout-sep">/</span>
+                <span>ENTRY ₹100 PER TEAM</span>
+              </div>
+            </div>
             <div className="hero-actions">
               <Link className="button button-dark" to={registerPath}>
                 {registerCTA} <ArrowUpRight size={20} />
@@ -230,16 +249,23 @@ export function Landing() {
               {date.dayMonth}
               <span>{date.year}</span>
             </strong>
+            <small className="hero-time-tag">11:00 AM – 1:00 PM</small>
           </div>
           <div className="hero-location">
-            <strong>MITE</strong>
-            <span>OFFLINE · CAMPUS EDITION</span>
+            <strong>ISE LAB</strong>
+            <span>1ST FLOOR MAIN BLOCK · 30 SEATER</span>
+          </div>
+          <div className="hero-prize-box">
+            <strong>
+              ₹4,500 <small>RS</small>
+            </strong>
+            <span>TOTAL PRIZE POOL</span>
           </div>
           <div className="hero-fee">
             <strong>
               ₹100 <small>/ TEAM</small>
             </strong>
-            <span>2 STUDENTS. 1 SHARED VISION.</span>
+            <span>2 STUDENTS. 1 VISION.</span>
           </div>
           <a href="#about" className="scroll-cue" aria-label="Scroll to about">
             <ArrowDownRight />
@@ -250,8 +276,8 @@ export function Landing() {
         <div>
           {[0, 1, 2, 3].map((i) => (
             <span key={i}>
-              THINK OUTSIDE THE FOLD <Starburst /> DESIGN BEYOND THE ORDINARY{" "}
-              <Starburst />
+              THINK OUTSIDE THE FOLD <Starburst /> PRIZE POOL ₹4500 RS{" "}
+              <Starburst /> DESIGN BEYOND THE ORDINARY <Starburst />
             </span>
           ))}
         </div>
@@ -273,7 +299,8 @@ export function Landing() {
             <p>
               FOLD is where strategy meets storytelling. Take a surprise company
               or event scenario and transform it into a professional four-page
-              brochure — all in 120 minutes.
+              brochure — a 1:30 hr design challenge followed by 30 minutes of
+              live judgement (2 hours total).
             </p>
             <p>
               Brought to you by the ZERONE Student Association, Information
@@ -284,10 +311,10 @@ export function Landing() {
               Find your creative edge <ArrowUpRight size={20} />
             </a>
             <div className="venue-note">
-              <span className="eyebrow">MEET US AT MITE</span>
+              <span className="eyebrow">VENUE & TIMING</span>
               <span>
                 {config?.settings.venue ||
-                  "Exact campus venue to be announced."} · {config?.settings.time ? config.settings.time + " IST" : "Start time to be announced"}
+                  "ISE LAB (30 seater 1st floor main block)"} · 11:00 AM – 1:00 PM IST
               </span>
             </div>
           </div>
@@ -339,15 +366,15 @@ export function Landing() {
         </div>
         <div className="stat-row reveal">
           {[
-            [2, "CREATIVE MINDS"],
+            [2, "CREATIVE MINDS / TEAM"],
             [4, "A4 PORTRAIT PAGES"],
-            [120, "MINUTES TO MAKE IT"],
-            [30, "TEAMS. MAXIMUM."],
+            [90, "MIN DESIGN (1:30 HR)"],
+            [30, "MIN JUDGEMENT (2 HR TOTAL)"],
           ].map(([value, label]) => (
             <div key={label}>
               <strong>
                 <Count value={Number(value)} />
-                <span>{value === 120 ? "′" : value === 4 ? "↗" : "."}</span>
+                <span>{value === 90 || (value === 30 && typeof label === "string" && label.includes("MIN")) ? "′" : value === 4 ? "↗" : "."}</span>
               </strong>
               <span>{label}</span>
             </div>
@@ -468,48 +495,48 @@ export function Landing() {
         </div>
         <div className="timeline-title reveal">
           <h2>
-            Three hours.
+            Two hours.
             <br />
             <span>No ordinary ideas.</span>
           </h2>
           <div className="clock-art" aria-hidden="true">
-            <span>180</span>
-            <small>MINUTES</small>
+            <span>120</span>
+            <small>MINUTES TOTAL</small>
             <i />
           </div>
         </div>
         <div className="timeline-track reveal">
           {[
             [
-              "00",
+              "11:00",
               "The spark.",
               "Briefing",
-              "The surprise brief is revealed. The two-hour design clock starts.",
+              "The surprise brief is revealed. The 1:30 hr design clock starts.",
             ],
             [
-              "00—120",
+              "11:00—12:30",
               "The making.",
-              "Design",
-              "Use the full two hours to design your four-page brochure.",
+              "Design (1:30 hr)",
+              "Use the 90 minutes to design your four-page brochure.",
             ],
             [
-              "120",
+              "12:30",
               "The final fold.",
               "Submission",
-              "Submit your PDF and four previews by minute 120.",
+              "Submit your PDF and four previews by 12:30 PM (minute 90).",
             ],
             [
-              "120—180",
-              "The moment.",
-              "Jury review",
-              "Let the work do the talking. The jury takes a closer look.",
+              "12:30—1:00",
+              "The verdict.",
+              "Judgement (30 min)",
+              "Live jury evaluation and scoring for 30 minutes to decide the winners.",
             ],
           ].map(([time, title, tag, copy], i) => (
             <div className="timeline-item" key={tag}>
               <span className="timeline-node">0{i + 1}</span>
               <span className="timeline-time">
                 {time}
-                <small> MIN</small>
+                <small>{time.includes(":") ? "" : " MIN"}</small>
               </span>
               <span className="eyebrow">{tag}</span>
               <h3>{title}</h3>
@@ -633,7 +660,7 @@ export function Landing() {
           <span className="eyebrow">
             THE PAGE IS BLANK. THE STAGE IS YOURS.
           </span>
-          <span>{date.numeric} / MITE</span>
+          <span>{date.numeric} / ISE LAB</span>
         </div>
         <div className="registration-content reveal">
           <h2>

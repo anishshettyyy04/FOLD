@@ -5,9 +5,9 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
   const adminPassword = env.ADMIN_PASSWORD || "Zerone@2026";
   let localSettings = {
-    venue: "MITE campus",
-    event_date: "2026-11-13",
-    time: "10:00",
+    venue: "ISE LAB (30 seater 1st floor main block)",
+    event_date: "2026-11-12",
+    time: "11:00",
     formUrl: "https://forms.gle/xgwbdJaWfsybkp6M7",
   };
 

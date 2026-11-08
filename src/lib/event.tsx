@@ -59,7 +59,7 @@ export function EventProvider({ children }: { children: ReactNode }) {
 }
 
 export function eventDateParts(config: PublicEvent | null) {
-  const iso = config?.settings.event_date || "2026-11-13";
+  const iso = config?.settings.event_date || "2026-11-12";
   const date = new Date(`${iso.slice(0, 10)}T12:00:00Z`);
   const format = (options: Intl.DateTimeFormatOptions) =>
     new Intl.DateTimeFormat("en-GB", { ...options, timeZone: "UTC" })

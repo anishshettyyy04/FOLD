@@ -284,8 +284,92 @@ em {
 .hero-copy p {
   font-size: 13px;
   line-height: 1.7;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   max-width: 360px;
+}
+.hero-prize-callout {
+  display: flex;
+  flex-direction: column;
+  background: var(--ink);
+  color: var(--ivory);
+  padding: 16px 20px;
+  margin: 0 0 24px;
+  border-radius: 4px;
+  border-left: 5px solid var(--yellow);
+  box-shadow: 6px 6px 0 rgba(33, 16, 12, 0.4);
+  max-width: 380px;
+  position: relative;
+  animation: title-in 0.9s 0.2s both;
+}
+.prize-callout-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+.prize-callout-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--yellow);
+  text-transform: uppercase;
+}
+.prize-pill-star {
+  width: 14px;
+  height: 14px;
+}
+.prize-callout-tag {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  background: rgba(255, 197, 47, 0.2);
+  color: var(--yellow);
+  padding: 2px 8px;
+  border-radius: 2px;
+}
+.prize-callout-main {
+  display: flex;
+  align-items: baseline;
+  gap: 3px;
+  line-height: 1;
+  margin: 2px 0 6px;
+}
+.prize-callout-currency {
+  font-family: var(--display);
+  font-size: clamp(26px, 3.2vw, 34px);
+  color: var(--yellow);
+}
+.prize-callout-amount {
+  font-family: var(--display);
+  font-size: clamp(48px, 6vw, 68px);
+  color: var(--yellow);
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+}
+.prize-callout-rs {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(16px, 2vw, 22px);
+  font-weight: 700;
+  color: var(--ivory);
+  letter-spacing: 0.05em;
+  margin-left: 4px;
+}
+.prize-callout-sub {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: rgba(255, 240, 213, 0.78);
+  font-weight: 500;
+}
+.prize-callout-sep {
+  color: var(--yellow);
+  opacity: 0.6;
 }
 .hero-actions {
   display: flex;
@@ -346,14 +430,14 @@ em {
   border-top: 1px solid var(--line);
   min-height: 106px;
   display: grid;
-  grid-template-columns: 1.3fr 1fr 1fr 60px;
+  grid-template-columns: 1.2fr 1.3fr 1fr 1fr 50px;
   align-items: center;
-  gap: 22px;
+  gap: 18px;
 }
 .hero-date {
   display: flex;
   align-items: center;
-  gap: 19px;
+  gap: 14px;
 }
 .hero-date > span {
   writing-mode: vertical-rl;
@@ -363,7 +447,7 @@ em {
 }
 .hero-date > strong {
   font-family: var(--display);
-  font-size: 43px;
+  font-size: 40px;
   line-height: 1;
   letter-spacing: -0.03em;
 }
@@ -372,26 +456,45 @@ em {
   font-size: 11px;
   letter-spacing: 0;
   vertical-align: top;
-  margin-left: 8px;
+  margin-left: 6px;
+}
+.hero-time-tag {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  background: var(--ink);
+  color: var(--ivory);
+  padding: 3px 6px;
+  border-radius: 2px;
+  white-space: nowrap;
 }
 .hero-location,
-.hero-fee {
+.hero-fee,
+.hero-prize-box {
   display: flex;
   flex-direction: column;
-  gap: 7px;
+  gap: 6px;
 }
 .hero-location strong,
-.hero-fee strong {
+.hero-fee strong,
+.hero-prize-box strong {
   font-family: "Space Grotesk", sans-serif;
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 700;
+  line-height: 1.1;
+}
+.hero-prize-box strong {
+  color: var(--ink);
 }
 .hero-location > span,
-.hero-fee > span {
+.hero-fee > span,
+.hero-prize-box > span {
   font-size: 8px;
   letter-spacing: 0.1em;
+  line-height: 1.3;
 }
-.hero-fee strong small {
+.hero-fee strong small,
+.hero-prize-box strong small {
   font-family: Inter, sans-serif;
   font-size: 9px;
   vertical-align: middle;
@@ -2027,8 +2130,8 @@ em {
     margin-right: -160px;
   }
   .hero-bottom {
-    grid-template-columns: 1.3fr 1fr 1fr 40px;
-    gap: 15px;
+    grid-template-columns: 1fr 1.2fr 1fr 1fr 36px;
+    gap: 12px;
   }
   .hero-date {
     gap: 10px;
@@ -2040,11 +2143,13 @@ em {
     font-size: 8px;
   }
   .hero-location strong,
-  .hero-fee strong {
-    font-size: 20px;
+  .hero-fee strong,
+  .hero-prize-box strong {
+    font-size: 19px;
   }
   .hero-location > span,
-  .hero-fee > span {
+  .hero-fee > span,
+  .hero-prize-box > span {
     font-size: 6px;
   }
   .scroll-cue {
@@ -2499,9 +2604,9 @@ em {
   }
   .hero-bottom {
     margin-top: 100px;
-    grid-template-columns: 1.2fr 0.8fr 1fr;
+    grid-template-columns: 1fr 1fr;
     min-height: 90px;
-    gap: 10px;
+    gap: 14px 12px;
   }
   .hero-date > strong {
     font-size: 30px;
@@ -2516,18 +2621,18 @@ em {
     font-size: 6px;
   }
   .hero-location strong,
-  .hero-fee strong {
+  .hero-fee strong,
+  .hero-prize-box strong {
     font-size: 19px;
   }
-  .hero-location > span {
-    font-size: 5px;
+  .hero-location > span,
+  .hero-fee > span,
+  .hero-prize-box > span {
+    font-size: 6px;
     letter-spacing: 0.03em;
   }
-  .hero-fee > span {
-    font-size: 5px;
-    letter-spacing: 0.01em;
-  }
-  .hero-fee strong small {
+  .hero-fee strong small,
+  .hero-prize-box strong small {
     font-size: 6px;
   }
   .scroll-cue {
